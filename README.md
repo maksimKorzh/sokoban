@@ -7,3 +7,4 @@ by as many viewers and users as possible without being bothered
 about system dependent libraries like ncurses.
 
 # YouTube tutorial
+[![IMAGE ALT TEXT HERE](https://img.youtube.com/vi/R7F5EyI4kXo/0.jpg)](https://youtu.be/R7F5EyI4kXo)
