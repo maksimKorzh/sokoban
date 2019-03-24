@@ -1,3 +1,4 @@
+
 /*********************************************************************************\
 ;                                     game.h                                      ;
 ;---------------------------------------------------------------------------------;
@@ -112,6 +113,19 @@ void RefreshScreen()
     printf("\x1b[0;0H%s\n", screen);
     #endif
 }
+
+void PrintMap(int pos_x, int pos_y, int map_width, int map_height, char *map)
+{
+    for (int row = 0; row < map_height; row++)
+    {
+        for (int col = 0; col < map_width; col++)
+        {
+            screen[(row + pos_y) * SCREEN_WIDTH + col + pos_x] = map[row * map_width + col];
+        }
+    }
+
+    RefreshScreen();    
+}        
 
 // getchar() for windows without echoing
 #ifdef WIN32

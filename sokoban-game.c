@@ -138,20 +138,7 @@ void MoveCharacter(int pos_x, int pos_y, int offset)
             map[PLAYER_POSITION] = '@';                                 // draw the player in the new position
         }
     }   
-}
-
-void PrintMap(int pos_x, int pos_y, char *map)
-{
-    for (int row = 0; row < MAP_HEIGHT; row++)
-    {
-        for (int col = 0; col < MAP_WIDTH; col++)
-        {
-            screen[(row + pos_y) * SCREEN_WIDTH + col + pos_x] = map[row * MAP_WIDTH + col];
-        }
-    }
-
-    RefreshScreen();    
-}         
+} 
 
 int main()
 {
@@ -163,7 +150,10 @@ int main()
 
     int dest_num = GetDestSquares();
 
-    PrintMap(SCREEN_WIDTH / 2 - MAP_WIDTH / 2, SCREEN_HEIGHT / 2 - MAP_HEIGHT / 2, map);
+    int center_x = SCREEN_WIDTH / 2 - MAP_WIDTH / 2;
+    int center_y = SCREEN_HEIGHT / 2 - MAP_HEIGHT / 2;
+
+    PrintMap(center_x, center_y, MAP_WIDTH, MAP_HEIGHT, map);
     
     while(1)
     {
@@ -190,7 +180,7 @@ int main()
                 map[dest_squares[i]] = 'x';                             // restore it
         }
         
-        PrintMap(SCREEN_WIDTH / 2 - MAP_WIDTH / 2, SCREEN_HEIGHT / 2 - MAP_HEIGHT / 2, map);
+        PrintMap(center_x, center_y, MAP_WIDTH, MAP_HEIGHT, map);
 
         // if all boxes are on it's places break out of game loop
         if(dest_num == dest_count)
