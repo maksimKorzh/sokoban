@@ -110,7 +110,7 @@ void RefreshScreen()
 
     // print screen buffer to stdout at coordinates 0, 0
     #ifdef unix
-    printf("\x1b[0;0H%s\n", screen);
+    printf("\x1b[0;0H%s", screen);
     #endif
 }
 
